@@ -7,12 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
-    @Html.ActionLink("顯示全部", "Index", new { ShowAll = true, KeyWord = ViewBag.KeyWord, PageNo = ViewBag.PageNo })
+    @Html.ActionLink("新增", "Create", new { @class = "btn btn-primary" })
+    @Html.ActionLink("顯示全部", "Index", new { ShowAll = true, PageNo = ViewBag.PageNo }, new { @class = "btn btn-primary" })
 </p>
 <p>
     @{
-        using (Html.BeginForm("Index", "Products", new { ShowAll= ViewBag.ShowAll }))
+        using (Html.BeginForm("Index", "Products", new { ShowAll= ViewBag.ShowAll, PageNo = ViewBag.PageN }))
         {
             @Html.TextBox("KeyWord");
             <input type="submit" value="Search" />

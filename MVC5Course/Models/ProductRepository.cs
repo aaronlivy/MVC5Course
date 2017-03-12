@@ -18,7 +18,7 @@ namespace MVC5Course.Models
 
         public IQueryable<Product> All(bool ShowAll)
         {
-            return (ShowAll ? base.All() : this.All());
+            return (ShowAll ? base.All().Where(o => false == o.IsDelete) : this.All());
         }
 
         public override void Delete(Product entity)
