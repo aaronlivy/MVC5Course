@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC5Course.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,16 @@ namespace MVC5Course.Controllers
         public ActionResult Test()
         {
             return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginVM Login)
+        {
+            return Content(Login.Username + ":" + Login.Password);
         }
     }
 }

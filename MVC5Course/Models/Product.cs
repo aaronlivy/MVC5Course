@@ -39,7 +39,7 @@ namespace MVC5Course.Models
         public Nullable<bool> Active { get; set; }
 
         [DisplayName("庫存")]
-        [DisplayFormat(DataFormatString = "NT$ {0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         [Required]
         public Nullable<decimal> Stock { get; set; }
     
