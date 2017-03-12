@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVC5Course.Models
 {
-    public class LoginVM
+    public class LoginVM : IValidatableObject
     {
         [Required]
         [MinLength(3)]
@@ -14,5 +14,14 @@ namespace MVC5Course.Models
         [Required]
         [MinLength(6)]
         public string Password { get; set; }
+
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (this.Username == "aaronlivy" && this.Password == "123456")
+                yield return ValidationResult.Success;
+            else
+                yield return new ValidationResult("登入失敗!!", new string[] { "Username" });
+        }
     }
 }

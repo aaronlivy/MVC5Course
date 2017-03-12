@@ -37,10 +37,15 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Login(LoginVM Login)
         {
-            return Content(Login.Username + ":" + Login.Password);
+            if(ModelState.IsValid)
+            {
+                return Content(Login.Username + ":" + Login.Password);
+            }
+            return Content("登入失敗!!");
         }
     }
 }
