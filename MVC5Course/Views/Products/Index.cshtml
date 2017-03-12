@@ -8,10 +8,11 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("顯示全部", "Index", new { ShowAll = true, KeyWord = ViewBag.KeyWord, PageNo = ViewBag.PageNo })
 </p>
 <p>
     @{
-        using (Html.BeginForm("Index", "Products"))
+        using (Html.BeginForm("Index", "Products", new { ShowAll= ViewBag.ShowAll }))
         {
             @Html.TextBox("KeyWord");
             <input type="submit" value="Search" />
@@ -71,7 +72,7 @@
                 @Html.DisplayFor(modelItem => item.Stock)
             </td>
             <td>
-                <
+                
                 @Html.ActionLink("編輯", "Edit", new { id = item.ProductId }) |
                 @Html.ActionLink("詳細", "Details", new { id = item.ProductId }) |
                 @Html.ActionLink("刪除", "Delete", new { id = item.ProductId })
