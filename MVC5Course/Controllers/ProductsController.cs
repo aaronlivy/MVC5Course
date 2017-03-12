@@ -7,15 +7,17 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
+using PagedList;
 
 namespace MVC5Course.Controllers
 {
     public class ProductsController : Controller
     {
+        private int DefaultPageSize = 20;
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Products
-        public ActionResult Index(string SortBy, string KeyWord = "")
+        public ActionResult Index(string SortBy, string KeyWord = "", int PageNo = 1)
         {
             var data = db.Product.AsQueryable();
             if (!string.IsNullOrEmpty(KeyWord))
@@ -27,8 +29,9 @@ namespace MVC5Course.Controllers
                 data = data.OrderByDescending(o => o.Price);
 
             ViewBag.KeyWord = KeyWord;
-
-            return View(data.Take(10).ToList());
+            ViewBag.SortBy = SortBy;
+            ViewBag.PageNo = PageNo;
+            return View(data.ToPagedList(PageNo, DefaultPageSize));
         }
 
         // GET: Products/Details/5

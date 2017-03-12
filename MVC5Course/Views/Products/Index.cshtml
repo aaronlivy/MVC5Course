@@ -21,11 +21,14 @@
 </p>
 
 @{
-    var a = new { SortBy = "+Price", KeyWord = ViewBag.KeyWord };
-    var b = new { SortBy = "-Price", KeyWord = ViewBag.KeyWord };
+    var a = new { SortBy = "+Price", KeyWord = ViewBag.KeyWord, PageNo = ViewBag.PageNo };
+    var b = new { SortBy = "-Price", KeyWord = ViewBag.KeyWord, PageNo = ViewBag.PageNo };
 }
 <table class="table">
-    <tr>
+    <tr style="background-color:burlywood;" >
+        <th>
+            編號
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
@@ -44,27 +47,38 @@
         <th></th>
     </tr>
 
+    @{
+        int Counter = 0;
+    }
+
     @foreach (var item in Model)
     {
-        <tr>
+       
+        <tr style="@(Counter % 2 != 0 ? "background-color:#ccc;":"")">
+            <td>
+                @(++Counter)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
-            <td>
+            <td style="@(item.Price >= 100 ? "color:red;": "" )">
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Active)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Stock)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            <td>                
+                @Html.ActionLink("編輯", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("詳細", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("刪除", "Delete", new { id = item.ProductId })
             </td>
         </tr>
     }
-
 </table>
+@using PagedList;
+@using PagedList.Mvc;
+
+@Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { SortBy = ViewBag.SortBy, KeyWord = ViewBag.KeyWord, PageNo = (p) }))
