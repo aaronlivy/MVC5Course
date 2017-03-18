@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVC5Course.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -33,19 +35,40 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        public ActionResult Login()
+        [AllowAnonymous]
+        public ActionResult Login(string ReturnUrl)
         {
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(LoginVM Login)
+        public ActionResult Login(LoginVM Login, string ReturnUrl)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Content(Login.Username + ":" + Login.Password);
+                FormsAuthentication.RedirectFromLoginPage(Login.Username, false);
+
+                if (!string.IsNullOrEmpty(ReturnUrl) && ReturnUrl.StartsWith("/"))
+                {
+                    return Redirect(ReturnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
             }
-            return Content("登入失敗!!");
+
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index");
         }
     }
 }

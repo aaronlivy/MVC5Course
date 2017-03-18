@@ -11,12 +11,14 @@ using PagedList;
 
 namespace MVC5Course.Controllers
 {
+    
     public class ProductsController : Controller
     {
         private int DefaultPageSize = 20;
         private FabricsEntities db = new FabricsEntities();
         ProductRepository repo = RepositoryHelper.GetProductRepository();
 
+        [Authorize]
         // GET: Products
         public ActionResult Index(string SortBy, string KeyWord = "", int PageNo = 1, bool ShowAll = false)
         {
