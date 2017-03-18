@@ -24,9 +24,13 @@
 @{
     var a = new { SortBy = "+Price", KeyWord = ViewBag.KeyWord, PageNo = ViewBag.PageNo };
     var b = new { SortBy = "-Price", KeyWord = ViewBag.KeyWord, PageNo = ViewBag.PageNo };
+    var Data = Model.ToArray();
 }
+
+@using (Html.BeginForm())
+{
 <table class="table">
-    <tr style="background-color:burlywood;" >
+    <tr style="background-color:burlywood;">
         <th>
             編號
         </th>
@@ -39,9 +43,9 @@
             @Html.DisplayNameFor(model => model.Price)
             <a href="@Url.Action("Index", "Products", b)">▼</a>
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>*@
+        <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
         <th>
             @Html.DisplayNameFor(model => model.Stock)
         </th>
@@ -52,32 +56,39 @@
         int Counter = 0;
     }
 
-    @foreach (var item in Model)
+    @for(var i = 0; i< Data.Length; i++)
     {
-       
+        @Html.HiddenFor(modelItem => Data[i].ProductId);
         <tr style="@(Counter % 2 != 0 ? "background-color:#ccc;":"")">
             <td>
                 @(++Counter)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
+                @Html.EditorFor(modelItem => Data[i].ProductName)
+                @Html.ValidationMessageFor(modelItem => Data[i].ProductName)
             </td>
-            <td style="@(item.Price >= 100 ? "color:red;": "" )">
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
+            <td style="@(Data[i].Price >= 100 ? "color:red;": "" )">
+                @Html.EditorFor(modelItem => Data[i].Price)
+                @Html.ValidationMessageFor(modelItem => Data[i].Price)
             </td>
             <td>
-                
-                @Html.ActionLink("編輯", "Edit", new { id = item.ProductId }) |
-                @Html.ActionLink("詳細", "Details", new { id = item.ProductId }) |
-                @Html.ActionLink("刪除", "Delete", new { id = item.ProductId })
+                @Html.EditorFor(modelItem => Data[i].Active)
+                @Html.ValidationMessageFor(modelItem => Data[i].Active)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => Data[i].Stock)
+                @Html.ValidationMessageFor(modelItem => Data[i].Stock)
+            </td>
+            <td>
+
+                @Html.ActionLink("編輯", "Edit", new { id = Data[i].ProductId }) |
+                @Html.ActionLink("詳細", "Details", new { id = Data[i].ProductId }) |
+                @Html.ActionLink("刪除", "Delete", new { id = Data[i].ProductId })
             </td>
         </tr>
     }
 </table>
+<input type="submit" value="Submit" />
+}
+
 @Html.Partial("_Pager")

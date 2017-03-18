@@ -20,7 +20,13 @@ namespace MVC5Course.Controllers
         // GET: Products
         public ActionResult Index(string SortBy, string KeyWord = "", int PageNo = 1, bool ShowAll = false)
         {
+            DoProductSearch(SortBy, KeyWord, PageNo, ShowAll);
 
+            return View();
+        }
+
+        private void DoProductSearch(string SortBy, string KeyWord, int PageNo, bool ShowAll)
+        {
             var data = ProductRepo.All(ShowAll).AsQueryable();
             if (!string.IsNullOrEmpty(KeyWord))
                 data = data.Where(o => o.ProductName.Contains(KeyWord));
@@ -34,7 +40,28 @@ namespace MVC5Course.Controllers
             ViewBag.SortBy = SortBy;
             ViewBag.PageNo = PageNo;
             ViewBag.ShowAll = ShowAll;
-            return View(data.ToPagedList(PageNo, DefaultPageSize));
+
+            ViewData.Model = data.ToPagedList(PageNo, DefaultPageSize);
+        }
+
+        [HttpPost]
+        public ActionResult Index(IList<Product> Data, string SortBy, string KeyWord, int PageNo = 1, bool ShowAll = false)
+        {
+            if(ModelState.IsValid)
+            {
+                foreach (var item in Data)
+                {
+                    var Product = ProductRepo.Find(item.ProductId);
+                    Product.Price = item.Price;
+                    Product.ProductName = item.ProductName;
+                    Product.Stock = item.Stock;
+                    ProductRepo.UnitOfWork.Commit();
+                }
+            }
+
+            DoProductSearch(SortBy, KeyWord, PageNo, ShowAll);
+
+            return View();
         }
 
         // GET: Products/Details/5
@@ -95,16 +122,15 @@ namespace MVC5Course.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product)
+        public ActionResult Edit(int id, FormCollection form)
         {
-            if (ModelState.IsValid)
+            var Product = ProductRepo.Find(id);
+            if (TryUpdateModel(Product, new string[] { "ProductName", "Price" }))
             {
-                var db = ProductRepo.UnitOfWork.Context;
-                db.Entry(product).State = EntityState.Modified;
                 ProductRepo.UnitOfWork.Commit();
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(Product);
         }
 
         // GET: Products/Delete/5

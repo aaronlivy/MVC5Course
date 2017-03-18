@@ -21,14 +21,19 @@
                 @Html.ActionLink("HAHA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("關於", "About", "Home")</li>
                     <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
                     <li>@Html.ActionLink("測試1", "Test", "Home")</li>
                     <li>@Html.ActionLink("測試2", "Index", "Test")</li>*@
-                    <li>@Html.ActionLink("商品", "Index", "Products")</li>
-                    <li>@Html.ActionLink("照片", "View3", "AR")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("商品", "Index", "Products")</li>
+                        <li>@Html.ActionLink("照片", "View3", "AR")</li>
+                    }
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
