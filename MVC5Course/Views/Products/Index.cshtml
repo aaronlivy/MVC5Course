@@ -80,7 +80,4 @@
         </tr>
     }
 </table>
-@using PagedList;
-@using PagedList.Mvc;
-
-@Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { SortBy = ViewBag.SortBy, KeyWord = ViewBag.KeyWord, PageNo = (p) }))
+@Html.Partial("_Pager")

@@ -45,6 +45,7 @@ namespace MVC5Course.Controllers
         [HttpPost]
         public ActionResult Login(LoginVM Login, string ReturnUrl)
         {
+            //FormsAuthentication.HashPasswordForStoringInConfigFile(Login.Password, "SHA1");
             if (ModelState.IsValid)
             {
                 FormsAuthentication.RedirectFromLoginPage(Login.Username, false);
