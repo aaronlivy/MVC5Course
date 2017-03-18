@@ -8,8 +8,8 @@ using System.Web.Security;
 
 namespace MVC5Course.Controllers
 {
-    [Authorize]
-    public class HomeController : Controller
+    
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -43,14 +43,17 @@ namespace MVC5Course.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(LoginVM Login, string ReturnUrl)
+        public ActionResult Login(LoginVM Login, string ReturnUrl = "")
         {
             //FormsAuthentication.HashPasswordForStoringInConfigFile(Login.Password, "SHA1");
+
+            TempData["Login"] = Login;
+
             if (ModelState.IsValid)
             {
                 FormsAuthentication.RedirectFromLoginPage(Login.Username, false);
 
-                if (!string.IsNullOrEmpty(ReturnUrl) && ReturnUrl.StartsWith("/"))
+                if (ReturnUrl.StartsWith("/"))
                 {
                     return Redirect(ReturnUrl);
                 }

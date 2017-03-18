@@ -17,8 +17,6 @@ namespace MVC5Course.Controllers
         private int DefaultPageSize = 20;
         private FabricsEntities db = new FabricsEntities();
         
-
-        [Authorize]
         // GET: Products
         public ActionResult Index(string SortBy, string KeyWord = "", int PageNo = 1, bool ShowAll = false)
         {

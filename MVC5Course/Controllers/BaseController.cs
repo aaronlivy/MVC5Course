@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
+    [Authorize]
     public abstract class BaseController : Controller
     {
         // GET: Base
