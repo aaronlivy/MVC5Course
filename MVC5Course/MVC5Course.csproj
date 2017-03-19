@@ -296,6 +296,23 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\10752579.png" />
+    <Content Include="Content\Metor\calendar.html" />
+    <Content Include="Content\Metor\chart.html" />
+    <Content Include="Content\Metor\file-manager.html" />
+    <Content Include="Content\Metor\form.html" />
+    <Content Include="Content\Metor\gallery.html" />
+    <Content Include="Content\Metor\icon.html" />
+    <Content Include="Content\Metor\index.html" />
+    <Content Include="Content\Metor\login.html" />
+    <Content Include="Content\Metor\messages.html" />
+    <Content Include="Content\Metor\submenu.html" />
+    <Content Include="Content\Metor\submenu2.html" />
+    <Content Include="Content\Metor\submenu3.html" />
+    <Content Include="Content\Metor\table.html" />
+    <Content Include="Content\Metor\tasks.html" />
+    <Content Include="Content\Metor\typography.html" />
+    <Content Include="Content\Metor\ui.html" />
+    <Content Include="Content\Metor\widgets.html" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -336,6 +353,7 @@
     <Content Include="Models\Fabrics.edmx.diagram">
       <DependentUpon>Fabrics.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Metor\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -406,6 +424,8 @@
     <Content Include="Views\Shared\Error_DbEntityValidationException.cshtml" />
     <Content Include="Views\Shared\Error_ArgumentException.cshtml.cshtml" />
     <Content Include="Views\Home\RazorTest.cshtml" />
+    <Content Include="Views\Home\Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout_Metro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -417,6 +437,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Metor\css\" />
+    <Folder Include="Content\Metor\font\" />
+    <Folder Include="Content\Metor\img\" />
+    <Folder Include="Content\Metor\js\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\RazorTest\" />
   </ItemGroup>
