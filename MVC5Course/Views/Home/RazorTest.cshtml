@@ -1,0 +1,20 @@
+﻿@model int[]
+
+@for(var i = 0; i < Model.Length; i++)
+{
+    @Model[i]
+}
+
+@for (var i = 0; i < Model.Length; i++)
+{
+    
+    @(Model[i] + " ")
+}
+
+<ul>
+@for (var i = 0; i < Model.Length; i++)
+{
+  <li>@Model[i]</li>
+}
+</ul>
+
