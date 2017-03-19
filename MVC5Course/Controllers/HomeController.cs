@@ -36,7 +36,7 @@ namespace MVC5Course.Controllers
 
         //    return View();
         //}
-
+        [僅在本機開發測試用]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
