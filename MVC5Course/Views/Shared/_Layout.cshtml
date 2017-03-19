@@ -24,17 +24,19 @@
                 
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    @*<li>@Html.ActionLink("關於", "About", "Home")</li>
+                    <li>@Html.ActionLink("關於", "About", "Home")</li>
                     <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
                     <li>@Html.ActionLink("測試1", "Test", "Home")</li>
-                    <li>@Html.ActionLink("測試2", "Index", "Test")</li>*@
+                    <li>@Html.ActionLink("測試2", "Index", "Test")</li>
+                    <li>@Html.ActionLink("照片", "View3", "AR")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("商品", "Index", "Products")</li>
-                        <li>@Html.ActionLink("照片", "View3", "AR")</li>
+
                     }
-                    
+
                 </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -43,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式 | 執行時間: @(ViewBag.Duration)</p>
         </footer>
     </div>
 

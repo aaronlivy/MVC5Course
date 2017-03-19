@@ -1,4 +1,5 @@
-﻿using MVC5Course.Models;
+﻿using MVC5Course.ActionFilters;
+using MVC5Course.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,16 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    
-    public class ARController : BaseController
+    [RecordTime]
+    public class ARController : Controller
     {
         // GET: AR
         public ActionResult Index()
         {
             return View();
         }
+
+        
 
         public ActionResult View2()
         {

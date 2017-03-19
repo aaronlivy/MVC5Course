@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
 using PagedList;
+using System.Data.Entity.Validation;
+using MVC5Course.ActionFilters;
 
 namespace MVC5Course.Controllers
 {
@@ -122,15 +124,19 @@ namespace MVC5Course.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [HandleError(View= "Error_DbEntityValidationException",ExceptionType = typeof(DbEntityValidationException))]
         public ActionResult Edit(int id, FormCollection form)
         {
             var Product = ProductRepo.Find(id);
             if (TryUpdateModel(Product, new string[] { "ProductName", "Price" }))
             {
-                ProductRepo.UnitOfWork.Commit();
-                return RedirectToAction("Index");
+                
             }
-            return View(Product);
+
+            ProductRepo.UnitOfWork.Commit();
+            return RedirectToAction("Index");
+
+            //return View(Product);
         }
 
         // GET: Products/Delete/5
