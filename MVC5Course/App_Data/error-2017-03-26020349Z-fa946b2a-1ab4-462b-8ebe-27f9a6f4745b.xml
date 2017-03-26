@@ -1,0 +1,485 @@
+﻿<error errorId="fa946b2a-1ab4-462b-8ebe-27f9a6f4745b" host="DESKTOP-BIUF8GJ" type="System.InvalidOperationException" message="沒有型別為 'IEnumerable&lt;SelectListItem&gt;' 且具有索引鍵 'ActiveFilter' 的 ViewData 項目。" source="System.Web.Mvc" detail="System.InvalidOperationException: 沒有型別為 'IEnumerable&lt;SelectListItem&gt;' 且具有索引鍵 'ActiveFilter' 的 ViewData 項目。&#xD;&#xA;   於 System.Web.Mvc.Html.SelectExtensions.GetSelectData(HtmlHelper htmlHelper, String name)&#xD;&#xA;   於 System.Web.Mvc.Html.SelectExtensions.SelectInternal(HtmlHelper htmlHelper, ModelMetadata metadata, String optionLabel, String name, IEnumerable`1 selectList, Boolean allowMultiple, IDictionary`2 htmlAttributes)&#xD;&#xA;   於 System.Web.Mvc.Html.SelectExtensions.DropDownList(HtmlHelper htmlHelper, String name, IEnumerable`1 selectList, String optionLabel, Object htmlAttributes)&#xD;&#xA;   於 ASP._Page_Views_Products_Index_cshtml.Execute() 於 c:\Users\Aaronlivy\Source\Repos\MVC5Course\MVC5Course\Views\Products\Index.cshtml: 行 17&#xD;&#xA;   於 System.Web.WebPages.WebPageBase.ExecutePageHierarchy()&#xD;&#xA;   於 System.Web.Mvc.WebViewPage.ExecutePageHierarchy()&#xD;&#xA;   於 System.Web.WebPages.StartPage.RunPage()&#xD;&#xA;   於 System.Web.WebPages.StartPage.ExecutePageHierarchy()&#xD;&#xA;   於 System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)&#xD;&#xA;   於 System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)&#xD;&#xA;   於 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)&#xD;&#xA;   於 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)&#xD;&#xA;   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   於 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)" user="aaronlivy" time="2017-03-26T02:03:49.7028983Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:max-age=0&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:3428&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=X202ux1GZU50DBRoqjPx454yvUA1iIInbWqkOPHCaWIh-lXgaL_OWAyYTlkBDY24kYMZIcn5MpsokoWGD5vcuakieUxRVpfQNxy8lW9rATI1; ASP.NET_SessionId=ets1xouvcnn4gazwvsg2m2hx; .ASPXAUTH=91EC266C77D31689E4E55F7D2BEE8826808E33274D72006C79C3A7CA8FABE5472F573454A806A60511A17358F1CD56FE40A9508A930F830B935EB5217C04F5C00A374BD41DD56A2361705B76833BE4BF56B813B28BF152D986F18538C2850044&#xD;&#xA;HTTP_HOST:localhost:52102&#xD;&#xA;HTTP_REFERER:http://localhost:52102/Products/Index&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:52102&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: max-age=0&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Content-Length: 3428&#xD;&#xA;Content-Type: application/x-www-form-urlencoded&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4&#xD;&#xA;Cookie: __RequestVerificationToken=X202ux1GZU50DBRoqjPx454yvUA1iIInbWqkOPHCaWIh-lXgaL_OWAyYTlkBDY24kYMZIcn5MpsokoWGD5vcuakieUxRVpfQNxy8lW9rATI1; ASP.NET_SessionId=ets1xouvcnn4gazwvsg2m2hx; .ASPXAUTH=91EC266C77D31689E4E55F7D2BEE8826808E33274D72006C79C3A7CA8FABE5472F573454A806A60511A17358F1CD56FE40A9508A930F830B935EB5217C04F5C00A374BD41DD56A2361705B76833BE4BF56B813B28BF152D986F18538C2850044&#xD;&#xA;Host: localhost:52102&#xD;&#xA;Referer: http://localhost:52102/Products/Index&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36&#xD;&#xA;Origin: http://localhost:52102&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Aaronlivy\Source\Repos\MVC5Course\MVC5Course\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="aaronlivy" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="aaronlivy" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="aaronlivy" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="3428" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Products/Index" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Aaronlivy\Source\Repos\MVC5Course\MVC5Course\Products\Index" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="3071" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Products/Index" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="52102" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Products/Index" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="max-age=0" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="3428" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=X202ux1GZU50DBRoqjPx454yvUA1iIInbWqkOPHCaWIh-lXgaL_OWAyYTlkBDY24kYMZIcn5MpsokoWGD5vcuakieUxRVpfQNxy8lW9rATI1; ASP.NET_SessionId=ets1xouvcnn4gazwvsg2m2hx; .ASPXAUTH=91EC266C77D31689E4E55F7D2BEE8826808E33274D72006C79C3A7CA8FABE5472F573454A806A60511A17358F1CD56FE40A9508A930F830B935EB5217C04F5C00A374BD41DD56A2361705B76833BE4BF56B813B28BF152D986F18538C2850044" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:52102" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:52102/Products/Index" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:52102" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="Data[0].ProductId">
+      <value string="1558" />
+    </item>
+    <item name="Data[0].ProductName">
+      <value string="opoop" />
+    </item>
+    <item name="Data[0].Price">
+      <value string="5000.00" />
+    </item>
+    <item name="Data[0].Active">
+      <value string="false" />
+    </item>
+    <item name="Data[0].Stock">
+      <value string="400.00" />
+    </item>
+    <item name="Data[1].ProductId">
+      <value string="1557" />
+    </item>
+    <item name="Data[1].ProductName">
+      <value string="aaron88989" />
+    </item>
+    <item name="Data[1].Price">
+      <value string="4000.00" />
+    </item>
+    <item name="Data[1].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[1].Stock">
+      <value string="500.00" />
+    </item>
+    <item name="Data[2].ProductId">
+      <value string="1555" />
+    </item>
+    <item name="Data[2].ProductName">
+      <value string="HA" />
+    </item>
+    <item name="Data[2].Price">
+      <value string="2000.00" />
+    </item>
+    <item name="Data[2].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[2].Stock">
+      <value string="2000.00" />
+    </item>
+    <item name="Data[3].ProductId">
+      <value string="886" />
+    </item>
+    <item name="Data[3].ProductName">
+      <value string="Lilac 100% cotton jersey fabric with yellow bicycles" />
+    </item>
+    <item name="Data[3].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[3].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[3].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[4].ProductId">
+      <value string="888" />
+    </item>
+    <item name="Data[4].ProductName">
+      <value string="Lilac 100% cotton jersey fabric with purple bicycles" />
+    </item>
+    <item name="Data[4].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[4].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[4].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[5].ProductId">
+      <value string="904" />
+    </item>
+    <item name="Data[5].ProductName">
+      <value string="Navy 100% cotton jersey fabric with sky blue bicycles" />
+    </item>
+    <item name="Data[5].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[5].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[5].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[6].ProductId">
+      <value string="910" />
+    </item>
+    <item name="Data[6].ProductName">
+      <value string="Lime 100% cotton jersey fabric with turquoise bicycles" />
+    </item>
+    <item name="Data[6].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[6].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[6].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[7].ProductId">
+      <value string="935" />
+    </item>
+    <item name="Data[7].ProductName">
+      <value string="Red 100% cotton jersey fabric with pink bicycles" />
+    </item>
+    <item name="Data[7].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[7].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[7].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[8].ProductId">
+      <value string="948" />
+    </item>
+    <item name="Data[8].ProductName">
+      <value string="Beige 100% cotton jersey fabric with turquoise bicycles" />
+    </item>
+    <item name="Data[8].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[8].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[8].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[9].ProductId">
+      <value string="951" />
+    </item>
+    <item name="Data[9].ProductName">
+      <value string="Multicolor 100% cotton jersey fabric with cream bicycles" />
+    </item>
+    <item name="Data[9].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[9].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[9].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[10].ProductId">
+      <value string="952" />
+    </item>
+    <item name="Data[10].ProductName">
+      <value string="Multicolor 100% cotton jersey fabric with lemon bicycles" />
+    </item>
+    <item name="Data[10].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[10].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[10].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[11].ProductId">
+      <value string="970" />
+    </item>
+    <item name="Data[11].ProductName">
+      <value string="Cerise 100% cotton jersey fabric with cream bears" />
+    </item>
+    <item name="Data[11].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[11].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[11].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[12].ProductId">
+      <value string="1013" />
+    </item>
+    <item name="Data[12].ProductName">
+      <value string="Lime 100% cotton jersey fabric with multicolor bears" />
+    </item>
+    <item name="Data[12].Price">
+      <value string="11.50" />
+    </item>
+    <item name="Data[12].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[12].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[13].ProductId">
+      <value string="1018" />
+    </item>
+    <item name="Data[13].ProductName">
+      <value string="Grass leatherette fabric with beige bears" />
+    </item>
+    <item name="Data[13].Price">
+      <value string="11.40" />
+    </item>
+    <item name="Data[13].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[13].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[14].ProductId">
+      <value string="962" />
+    </item>
+    <item name="Data[14].ProductName">
+      <value string="Yellow leatherette fabric with purple bears" />
+    </item>
+    <item name="Data[14].Price">
+      <value string="11.40" />
+    </item>
+    <item name="Data[14].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[14].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[15].ProductId">
+      <value string="975" />
+    </item>
+    <item name="Data[15].ProductName">
+      <value string="Cerise leatherette fabric with orange bears" />
+    </item>
+    <item name="Data[15].Price">
+      <value string="11.40" />
+    </item>
+    <item name="Data[15].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[15].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[16].ProductId">
+      <value string="922" />
+    </item>
+    <item name="Data[16].ProductName">
+      <value string="Orange leatherette fabric with white bicycles" />
+    </item>
+    <item name="Data[16].Price">
+      <value string="11.40" />
+    </item>
+    <item name="Data[16].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[16].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[17].ProductId">
+      <value string="925" />
+    </item>
+    <item name="Data[17].ProductName">
+      <value string="Orange leatherette fabric with lilac bicycles" />
+    </item>
+    <item name="Data[17].Price">
+      <value string="11.40" />
+    </item>
+    <item name="Data[17].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[17].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[18].ProductId">
+      <value string="930" />
+    </item>
+    <item name="Data[18].ProductName">
+      <value string="Rust leatherette fabric with cerise bicycles" />
+    </item>
+    <item name="Data[18].Price">
+      <value string="11.40" />
+    </item>
+    <item name="Data[18].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[18].Stock">
+      <value string="1210.20" />
+    </item>
+    <item name="Data[19].ProductId">
+      <value string="932" />
+    </item>
+    <item name="Data[19].ProductName">
+      <value string="Rust leatherette fabric with purple bicycles" />
+    </item>
+    <item name="Data[19].Price">
+      <value string="11.40" />
+    </item>
+    <item name="Data[19].Active">
+      <value string="true" />
+    </item>
+    <item name="Data[19].Stock">
+      <value string="1210.20" />
+    </item>
+  </form>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="X202ux1GZU50DBRoqjPx454yvUA1iIInbWqkOPHCaWIh-lXgaL_OWAyYTlkBDY24kYMZIcn5MpsokoWGD5vcuakieUxRVpfQNxy8lW9rATI1" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="ets1xouvcnn4gazwvsg2m2hx" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="91EC266C77D31689E4E55F7D2BEE8826808E33274D72006C79C3A7CA8FABE5472F573454A806A60511A17358F1CD56FE40A9508A930F830B935EB5217C04F5C00A374BD41DD56A2361705B76833BE4BF56B813B28BF152D986F18538C2850044" />
+    </item>
+  </cookies>
+</error>

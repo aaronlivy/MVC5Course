@@ -20,19 +20,29 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
         
         // GET: Products
-        public ActionResult Index(string SortBy, string KeyWord = "", int PageNo = 1, bool ShowAll = false)
+        public ActionResult Index(string ActiveFilter, string SortBy, string KeyWord = "", int PageNo = 1, bool ShowAll = false)
         {
-            DoProductSearch(SortBy, KeyWord, PageNo, ShowAll);
+            //ViewBag.ActiveFilter = new SelectList(new List<string> { "True", "False" });
+            var activeOptions = ProductRepo.All().Select(o => o.Active.HasValue ? o.Active.ToString() : "false").Distinct().ToList();
+
+            ViewBag.ActiveFilter = new SelectList(activeOptions);
+
+            DoProductSearch(ActiveFilter, SortBy, KeyWord, PageNo, ShowAll);
 
             return View();
         }
 
-        private void DoProductSearch(string SortBy, string KeyWord, int PageNo, bool ShowAll)
+        private void DoProductSearch(string ActiveFilter="", string SortBy = "", string KeyWord = "", int PageNo = 1, bool ShowAll = false)
         {
+            
             var data = ProductRepo.All(ShowAll).AsQueryable();
             if (!string.IsNullOrEmpty(KeyWord))
                 data = data.Where(o => o.ProductName.Contains(KeyWord));
-
+            if (!string.IsNullOrEmpty(ActiveFilter))
+            {
+                bool AF = Boolean.Parse(ActiveFilter);
+                data = data.Where(o => o.Active == AF);
+            }
             if (SortBy == "+Price")
                 data = data.OrderBy(o => o.Price);
             else
@@ -47,7 +57,7 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(IList<Product> Data, string SortBy, string KeyWord, int PageNo = 1, bool ShowAll = false)
+        public ActionResult Index(string ActiveFilter, Product[] Data, string SortBy, string KeyWord = "", int PageNo = 1, bool ShowAll = false)
         {
             if(ModelState.IsValid)
             {
@@ -61,9 +71,13 @@ namespace MVC5Course.Controllers
                 }
             }
 
-            DoProductSearch(SortBy, KeyWord, PageNo, ShowAll);
+            var activeOptions = ProductRepo.All().Select(o => o.Active.HasValue ? o.Active.ToString() : "false").Distinct().ToList();
 
-            return View();
+            ViewBag.ActiveFilter = new SelectList(activeOptions);
+
+            DoProductSearch(ActiveFilter, SortBy, KeyWord, PageNo, ShowAll);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Products/Details/5
@@ -79,6 +93,16 @@ namespace MVC5Course.Controllers
                 return HttpNotFound();
             }
             return View(product);
+        }
+
+        public ActionResult ProductOrderLines(int id)
+        {
+            Product product = ProductRepo.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product.OrderLine);
         }
 
         // GET: Products/Create
@@ -128,7 +152,7 @@ namespace MVC5Course.Controllers
         public ActionResult Edit(int id, FormCollection form)
         {
             var Product = ProductRepo.Find(id);
-            if (TryUpdateModel(Product, new string[] { "ProductName", "Price" }))
+            if (TryUpdateModel(Product, new string[] { "ProductName", "Price", "Active" }))
             {
                 
             }

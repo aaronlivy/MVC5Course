@@ -11,14 +11,11 @@
     @Html.ActionLink("顯示全部", "Index", new { ShowAll = true, PageNo = ViewBag.PageNo }, new { @class = "btn btn-primary" })
 </p>
 <p>
-    @{
-        using (Html.BeginForm("Index", "Products", new { ShowAll= ViewBag.ShowAll, PageNo = ViewBag.PageN }))
-        {
-            @Html.TextBox("KeyWord");
-            <input type="submit" value="Search" />
-
-        }
-    }   
+    <form>
+        @Html.DropDownList("ActiveFilter", null, "請選擇", new { onchange = "" })
+        @Html.TextBox("KeyWord")
+        <input type="submit" value="Search" />
+    </form>
 </p>
 
 @{
